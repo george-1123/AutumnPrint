@@ -2,7 +2,7 @@
 
 English | [简体中文](../zh-CN/README.md)
 
-The project is in design; application code, installers, and deployments have not been implemented. This index defines document ownership. Each rule has one primary location per language; other documents link to it.
+Personal-mode engineering bootstrap is implemented. See [development setup](engineering/getting-started.md) for commands, evidence and remaining gates. Production features, installers and enterprise acceptance remain pending. This index defines document ownership; each rule has one primary location per language.
 
 Latest review: [zero-to-one architecture and functional review, 2026-10-30](research/architecture-functional-review-2026-10-30.md), with separate [agent evidence](research/agent-framework-update-2026-10-30.md) and [printing ecosystem evidence](research/printing-ecosystem-update-2026-10-30.md). Findings are recommendations, not accepted architecture changes or passing application tests.
 

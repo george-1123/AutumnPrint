@@ -9,4 +9,4 @@
 - [仓库与工程结构](architecture/repository.md)：四应用三公共包、依赖和构建。
 - [工程初始化](engineering/bootstrap.md)、[交付计划](engineering/delivery-plan.md)、[验证计划](engineering/validation.md)。
 
-本文仅保留旧路径导航，不维护重复正文；应用与安装包尚未实现。
+本文仅保留旧路径导航，不维护重复正文；个人模式工程基础已实现，正式业务与安装包待完成，见[开发启动指南](engineering/getting-started.md)。

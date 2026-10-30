@@ -2,7 +2,7 @@
 
 [English](../../en/architecture/runtime-and-deployment.md) | 简体中文
 
-状态：待实现设计基线。本文拥有双模式部署、后台生命周期、持久任务和现场协议；产品模式需求见[需求](../product/requirements.md)，代码位置见[仓库结构](repository.md)，角色定义见[Agent](agent-and-tools.md)。
+状态：目标运行设计。已实现开发宿主与个人 Fake 诊断，差距见[实现状态](../engineering/getting-started.md)。本文拥有双模式部署、后台生命周期、持久任务和现场协议；产品模式需求见[需求](../product/requirements.md)，代码位置见[仓库结构](repository.md)，角色定义见[Agent](agent-and-tools.md)。
 
 ## 部署模式与配置
 

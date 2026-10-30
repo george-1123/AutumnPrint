@@ -2,7 +2,7 @@
 
 [English](../../en/engineering/validation.md) | 简体中文
 
-本文件拥有工程测试层次、故障验证和发布检查；业务验收条件以[功能规格](../product/functional-spec.md)为准，初始化门槛以[bootstrap](bootstrap.md)为准。当前没有应用执行结果，所有清单均待验证。
+本文件拥有工程测试层次、故障验证和发布检查；业务验收条件以[功能规格](../product/functional-spec.md)为准，初始化门槛以[bootstrap](bootstrap.md)为准。本地工程验证和剩余门槛见[开发启动指南](getting-started.md)，下列完整产品清单仍待验证。
 
 ## 测试、观测与性能验证
 

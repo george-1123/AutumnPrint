@@ -8,7 +8,7 @@ Connect models and requirements, real slicing comparisons, first-article trials,
 
 ## Current status
 
-The project is in design and research. Application code, runnable services, and installers have not been implemented. Documented directories, commands, features, and acceptance criteria are implementation targets.
+The personal-mode engineering bootstrap is implemented with a durable Fake diagnostic across four applications. See [development setup](engineering/getting-started.md) for verified commands and remaining gates. Production features, enterprise acceptance and installers remain targets.
 
 Personal local and enterprise server modes share the same business agents. The edge executor runs Orca, geometry, and device tools. Personal users should be able to install the application and configure a model API; enterprise users connect to a server and sign in.
 

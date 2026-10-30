@@ -1,0 +1,12 @@
+[project]
+name = "autumn-worker"
+version = "0.1.0"
+requires-python = ">=3.12,<3.13"
+dependencies = ["autumn-control"]
+
+[project.optional-dependencies]
+enterprise = ["autumn-control[enterprise]", "celery[redis]>=5.5,<6"]
+
+[build-system]
+requires = ["hatchling>=1.27,<2"]
+build-backend = "hatchling.build"

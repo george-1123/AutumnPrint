@@ -2,7 +2,7 @@
 
 English | [简体中文](../../zh-CN/architecture/repository.md)
 
-This document owns application directories, shared packages, and dependency direction. The full target structure is fixed; see the [delivery plan](../engineering/delivery-plan.md) for implementation order. Applications and build manifests have not been implemented.
+This document owns application directories, shared packages, and dependency direction. The full target structure is fixed; see the [delivery plan](../engineering/delivery-plan.md) for implementation order. Four app/three package manifests now exist. Nested business modules below remain targets; see [implementation status](../engineering/getting-started.md).
 
 ## Monorepo and complete target tree
 

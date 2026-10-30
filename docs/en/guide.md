@@ -11,4 +11,4 @@ The former combined guide has been split by responsibility. Start with the [docu
 - [Bootstrap](engineering/bootstrap.md): connectivity gates for four applications and both deployment modes.
 - [Delivery plan](engineering/delivery-plan.md) and [validation plan](engineering/validation.md).
 
-The design has not been implemented; there are no application execution results yet.
+Personal-mode bootstrap is available; see [development setup](engineering/getting-started.md) for commands and remaining gates.

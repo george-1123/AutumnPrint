@@ -1,0 +1,8 @@
+{
+  "source": "Original synthetic development fixture authored for Autumn Print",
+  "license": "MIT",
+  "physical_models": "Not supplied. No third-party model or production profile is bundled.",
+  "devices": [{"id": "fake-printer", "simulated": true, "nozzle_mm": 0.4}],
+  "spools": [{"id": "fake-pla", "simulated": true, "remaining_g": 1000}],
+  "expected_incidents": ["missing-model", "unconfirmed-acceptance-criteria"]
+}

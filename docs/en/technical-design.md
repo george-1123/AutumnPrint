@@ -9,4 +9,4 @@ The former combined technical design has been split. Start with the [architectur
 - [Repository structure](architecture/repository.md): four applications, three shared packages, dependencies, and builds.
 - [Bootstrap](engineering/bootstrap.md), [delivery plan](engineering/delivery-plan.md), and [validation plan](engineering/validation.md).
 
-This page preserves the old path without duplicate specifications. Applications and installers have not been implemented.
+This page preserves the old path without duplicate specifications. Personal-mode bootstrap exists; production features and installers remain pending. See [development setup](engineering/getting-started.md).

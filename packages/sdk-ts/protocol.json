@@ -1,0 +1,114 @@
+{
+  "Command": {
+    "additionalProperties": false,
+    "properties": {
+      "id": {
+        "title": "Id",
+        "type": "string"
+      },
+      "task_id": {
+        "title": "Task Id",
+        "type": "string"
+      },
+      "lease_token": {
+        "title": "Lease Token",
+        "type": "string"
+      },
+      "protocol_version": {
+        "const": "1",
+        "default": "1",
+        "title": "Protocol Version",
+        "type": "string"
+      },
+      "tool": {
+        "const": "fake-diagnostic",
+        "default": "fake-diagnostic",
+        "title": "Tool",
+        "type": "string"
+      }
+    },
+    "required": [
+      "id",
+      "task_id",
+      "lease_token"
+    ],
+    "title": "Command",
+    "type": "object"
+  },
+  "CompleteCommand": {
+    "$defs": {
+      "Receipt": {
+        "additionalProperties": false,
+        "properties": {
+          "protocol_version": {
+            "const": "1",
+            "default": "1",
+            "title": "Protocol Version",
+            "type": "string"
+          },
+          "simulated": {
+            "const": true,
+            "default": true,
+            "title": "Simulated",
+            "type": "boolean"
+          },
+          "tool": {
+            "const": "fake-diagnostic",
+            "default": "fake-diagnostic",
+            "title": "Tool",
+            "type": "string"
+          },
+          "message": {
+            "maxLength": 256,
+            "title": "Message",
+            "type": "string"
+          }
+        },
+        "required": [
+          "message"
+        ],
+        "title": "Receipt",
+        "type": "object"
+      }
+    },
+    "additionalProperties": false,
+    "properties": {
+      "lease_token": {
+        "title": "Lease Token",
+        "type": "string"
+      },
+      "receipt": {
+        "$ref": "#/$defs/Receipt"
+      }
+    },
+    "required": [
+      "lease_token",
+      "receipt"
+    ],
+    "title": "CompleteCommand",
+    "type": "object"
+  },
+  "EdgeRegistration": {
+    "additionalProperties": false,
+    "properties": {
+      "protocol_version": {
+        "const": "1",
+        "default": "1",
+        "title": "Protocol Version",
+        "type": "string"
+      },
+      "edge_id": {
+        "maxLength": 64,
+        "minLength": 1,
+        "pattern": "^[\\w-]+$",
+        "title": "Edge Id",
+        "type": "string"
+      }
+    },
+    "required": [
+      "edge_id"
+    ],
+    "title": "EdgeRegistration",
+    "type": "object"
+  }
+}

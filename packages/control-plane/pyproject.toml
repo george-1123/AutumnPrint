@@ -1,0 +1,12 @@
+[project]
+name = "autumn-control"
+version = "0.1.0"
+requires-python = ">=3.12,<3.13"
+dependencies = ["autumn-contracts", "sqlalchemy>=2.0.44,<3", "alembic>=1.17,<2", "platformdirs>=4,<5"]
+
+[project.optional-dependencies]
+enterprise = ["psycopg[binary]>=3.2,<4"]
+
+[build-system]
+requires = ["hatchling>=1.27,<2"]
+build-backend = "hatchling.build"

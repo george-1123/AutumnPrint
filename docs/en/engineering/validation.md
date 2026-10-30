@@ -2,7 +2,7 @@
 
 English | [简体中文](../../zh-CN/engineering/validation.md)
 
-This document owns engineering test layers, fault injection, and release checks. The [functional specification](../product/functional-spec.md) owns business acceptance; [bootstrap](bootstrap.md) owns initialization gates. No application execution results exist; all checks remain pending.
+This document owns engineering test layers, fault injection, and release checks. The [functional specification](../product/functional-spec.md) owns business acceptance; [bootstrap](bootstrap.md) owns initialization gates. Local bootstrap evidence and remaining gates are in [development setup](getting-started.md); the full product checks below remain pending.
 
 ## Tests, observability, and performance
 

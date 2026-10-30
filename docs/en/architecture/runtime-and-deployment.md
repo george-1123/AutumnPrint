@@ -2,7 +2,7 @@
 
 English | [简体中文](../../zh-CN/architecture/runtime-and-deployment.md)
 
-Status: unimplemented design baseline. This document owns dual-mode deployment, background lifecycle, durable tasks, and edge protocols. See [requirements](../product/requirements.md), [repository structure](repository.md), and [agent roles](agent-and-tools.md).
+Status: target runtime design. A developer host and personal Fake diagnostic exist; see [implementation status](../engineering/getting-started.md) for gaps. This document owns dual-mode deployment, background lifecycle, durable tasks, and edge protocols. See [requirements](../product/requirements.md), [repository structure](repository.md), and [agent roles](agent-and-tools.md).
 
 ## Deployment modes and configuration
 

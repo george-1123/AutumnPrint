@@ -2,7 +2,7 @@
 
 [English](../../en/engineering/delivery-plan.md) | 简体中文
 
-本文件只维护实现顺序、依赖和增量验收；完整功能由[功能规格](../product/functional-spec.md)定义，工程架构由[架构总览](../architecture/overview.md)与[仓库结构](../architecture/repository.md)定义。阶段不表示另建临时目录，也不改变两种模式共用业务实现的原则。当前均待实现。
+本文件只维护实现顺序、依赖和增量验收；完整功能由[功能规格](../product/functional-spec.md)定义，工程架构由[架构总览](../architecture/overview.md)与[仓库结构](../architecture/repository.md)定义。阶段不表示另建临时目录，也不改变两种模式共用业务实现的原则。个人模式工程基础已实现，[开发启动指南](getting-started.md)记录初始化门槛的实际进度，业务阶段仍待实现。
 
 ## 开发约定
 

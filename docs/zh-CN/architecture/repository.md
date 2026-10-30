@@ -2,7 +2,7 @@
 
 [English](../../en/architecture/repository.md) | 简体中文
 
-本文是应用目录、公共包和依赖方向的唯一正文来源。完整目标结构固定，交付顺序见[工程计划](../engineering/delivery-plan.md)。当前应用与构建清单尚未实现。
+本文是应用目录、公共包和依赖方向的唯一正文来源。完整目标结构固定，交付顺序见[工程计划](../engineering/delivery-plan.md)。四应用三公共包及构建清单已建立，业务子模块仍为目标，实际状态见[开发启动指南](../engineering/getting-started.md)。
 
 ## 单仓库与完整目标目录
 

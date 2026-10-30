@@ -2,7 +2,7 @@
 
 English | [简体中文](../../zh-CN/engineering/delivery-plan.md)
 
-This document owns implementation order, dependencies, and incremental acceptance. The [functional specification](../product/functional-spec.md) defines complete capabilities; [architecture](../architecture/overview.md) and [repository structure](../architecture/repository.md) define engineering organization. Phases do not introduce temporary layouts or separate business implementations for the two modes. All work remains pending.
+This document owns implementation order, dependencies, and incremental acceptance. The [functional specification](../product/functional-spec.md) defines complete capabilities; [architecture](../architecture/overview.md) and [repository structure](../architecture/repository.md) define engineering organization. Phases do not introduce temporary layouts or separate business implementations for the two modes. Personal-mode bootstrap exists; [development setup](getting-started.md) records the partial initialization gates. Product phases remain pending.
 
 ## Development rules
 

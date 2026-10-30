@@ -2,7 +2,7 @@
 
 [English](../en/README.md) | 简体中文
 
-项目尚处于设计阶段，应用代码、安装包与部署未实现。本文是文档导航；每项约定只在下表指定文档维护正文，其他文档通过链接引用。
+个人模式工程基础已实现，命令、证据和未完成门槛见[开发启动指南](engineering/getting-started.md)。正式业务、安装包及企业完整验收仍待完成。本文是文档导航；每项约定只在下表指定文档维护正文，其他文档通过链接引用。
 
 最新评审：[2026-10-30 从 0 到 1 的架构与功能评审](research/architecture-functional-review-2026-10-30.md)，附 [Agent 一手证据](research/agent-framework-update-2026-10-30.md)和[打印生态证据](research/printing-ecosystem-update-2026-10-30.md)。结论是建议，不代表已接受架构变更或应用验收通过。
 

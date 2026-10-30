@@ -2,7 +2,7 @@
 
 English | [简体中文](../../zh-CN/engineering/bootstrap.md)
 
-Status: unimplemented bootstrap specification; no runnable application exists. This document defines deliverables and acceptance from an empty engineering foundation to four connected applications. See [features](../product/functional-spec.md) and [repository structure](../architecture/repository.md). Commands below are targets, not claims of existing executables.
+Status: personal-mode engineering bootstrap implemented; full dual-mode gates remain open. Verified commands and limits are in [development setup](getting-started.md). This document defines the complete acceptance target; it does not imply every gate passed. See [features](../product/functional-spec.md) and [repository structure](../architecture/repository.md).
 
 ## Definition of complete
 
@@ -77,4 +77,4 @@ These are explicit implementation inputs. The revision synchronized dual-mode de
 
 ## Records and handoff
 
-Record environment, actual commands, outcomes, and diagnostic references for every gate. B-01 through B-08 remain incomplete without application code. Replace target commands with verified results during implementation; directory creation/static documentation checks are not application acceptance.
+Record environment, actual commands, outcomes, and diagnostic references for every gate. [Development setup](getting-started.md) distinguishes implemented behavior from enterprise, checkpoint, identity, transport and installer work still required. Directory creation/static documentation checks are not application acceptance.

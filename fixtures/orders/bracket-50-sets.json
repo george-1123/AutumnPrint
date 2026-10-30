@@ -1,0 +1,14 @@
+{
+  "id": "bracket-50-sets",
+  "kits": 50,
+  "models": {"base": null, "clip": null},
+  "components": [
+    {"model": "base", "per_kit": 1},
+    {"model": "clip", "per_kit": 2}
+  ],
+  "missing_information": [
+    "Authorized base and clip model revisions with explicit units",
+    "Printer, nozzle, material and compatible profile",
+    "Dimensional tolerances and assembly acceptance criteria"
+  ]
+}

@@ -2,7 +2,7 @@
 
 [English](../../en/architecture/overview.md) | 简体中文
 
-状态：待实现设计基线，整理于 2026-10-30。产品目标见[需求](../product/requirements.md)，用户行为见[功能规格](../product/functional-spec.md)。本文拥有模块、技术、数据和接口设计；[运行部署](runtime-and-deployment.md)、[Agent](agent-and-tools.md)和[仓库结构](repository.md)分别维护其专属内容。
+状态：产品设计基线，整理于 2026-10-30。个人模式工程基础已实现，[实现状态](../engineering/getting-started.md)区分当前行为与目标架构。产品目标见[需求](../product/requirements.md)，用户行为见[功能规格](../product/functional-spec.md)。本文拥有模块、技术、数据和接口设计；[运行部署](runtime-and-deployment.md)、[Agent](agent-and-tools.md)和[仓库结构](repository.md)分别维护其专属内容。
 
 技术版本和外部项目资料仍沿用 2026-10-29 的[调研快照](../research/technology-selection.md)，本次迁移未重新核验发布版本，也不代表集成测试通过。
 

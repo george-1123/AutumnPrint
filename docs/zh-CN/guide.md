@@ -11,4 +11,4 @@
 - [工程初始化](engineering/bootstrap.md)：四应用、双模式的连通门槛。
 - [功能交付计划](engineering/delivery-plan.md)、[验证计划](engineering/validation.md)。
 
-当前为待实现设计，尚无应用运行结果。
+个人模式工程基础已实现，命令及剩余门槛见[开发启动指南](engineering/getting-started.md)。

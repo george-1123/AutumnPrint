@@ -2,7 +2,7 @@
 
 English | [简体中文](../../zh-CN/architecture/overview.md)
 
-Status: unimplemented design baseline, organized on 2026-10-30. See [requirements](../product/requirements.md) for product goals and the [functional specification](../product/functional-spec.md) for behavior. This document owns modules, technology, data, and interfaces; [runtime](runtime-and-deployment.md), [agents](agent-and-tools.md), and [repository structure](repository.md) own their respective details.
+Status: product design baseline, organized on 2026-10-30. Personal-mode bootstrap exists; [implementation status](../engineering/getting-started.md) distinguishes current behavior from target architecture. See [requirements](../product/requirements.md) for product goals and the [functional specification](../product/functional-spec.md) for behavior. This document owns modules, technology, data, and interfaces; [runtime](runtime-and-deployment.md), [agents](agent-and-tools.md), and [repository structure](repository.md) own their respective details.
 
 Technology versions and external project information retain the [2026-10-29 research snapshot](../research/technology-selection.md). This reorganization did not recheck releases or demonstrate successful integration tests.
 
