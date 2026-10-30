@@ -1,6 +1,10 @@
 # Autumn Print 技术选型调研
 
-核验日期：2026-10-29（Asia/Shanghai）。覆盖 Agent、Electron 桌面端、3D、后端、数据、几何、切片、设备和企业部署。项目尚未实现，本文记录官方来源与设计判断，实际集成选择见 [技术设计](../docs/technical-design.md)，增量交付见 [指南](../guide.md)。
+[English](../../en/research/technology-selection.md) | 简体中文
+
+核验日期：2026-10-29（Asia/Shanghai）。覆盖 Agent、Electron 桌面端、3D、后端、数据、几何、切片、设备和企业部署。项目尚未实现，本文记录官方来源与设计判断，实际集成选择见 [技术设计](../architecture/overview.md)，增量交付见 [指南](../engineering/delivery-plan.md)。
+
+架构修订说明（2026-10-30）：用户已确定个人本地和企业服务器两种模式，共用业务及 Agent。下文原始调研日期、版本与关注度保留，不代表本次重新核验。涉及 PostgreSQL、Celery/Redis、OIDC 的执行与运维分析适用于企业配置；个人正式配置采用 SQLite 业务/持久队列及 checkpoint、本地所有者身份与随包后台。完整目录和当前交付约束以[双模式部署设计](../architecture/runtime-and-deployment.md)为准。
 
 ## 调研方法与最终决定
 
@@ -12,8 +16,8 @@
 | --- | --- |
 | 桌面 | Electron + electron-vite + React/TypeScript；Three.js/R3F；builder/updater 单一分发链 |
 | 业务 | Python/uv + FastAPI/Pydantic + 模块化单体；原生现场端独立运行 |
-| 数据 | 首个持久桌面版本使用 PostgreSQL/SQLAlchemy/Alembic；文件另存 ArtifactStore |
-| 执行 | LangGraph 唯一主编排；Linux Celery/Redis 有界任务；业务记录、checkpoint、队列职责分开 |
+| 数据 | 个人 SQLite、企业 PostgreSQL；共用 SQLAlchemy/Alembic，分别验证事务迁移；文件另存 ArtifactStore |
+| 执行 | 共用 LangGraph；个人本地持久队列与 SQLite checkpoint，企业 Linux Celery/Redis 与 PostgreSQL checkpoint |
 | 打印 | 固定 Orca 稳定候选 + Trimesh；修复能力逐项验收；Fake 后选择一个真实设备 Adapter |
 | 企业 | 标准 OIDC（开发/默认自托管可用 Keycloak）+ 应用资源授权；阶段 10 完善企业管理 |
 
@@ -25,9 +29,9 @@
 
 ### 1. 结论
 
-建议以 **LangGraph 作为唯一 Agent 图编排实现**，由 **Linux Celery + Redis 执行有界后台片段**，PostgreSQL 保存业务任务、事件、审批、outbox 与外部动作账本。LangGraph 使用持久化 PostgreSQL checkpointer；不把 checkpoint 当全部业务事实，也不把 Celery 结果状态作为订单或打印状态。
+采用 **LangGraph 作为共用 Agent 图编排实现**，个人由本机 worker/SQLite 持久队列执行，企业由服务器 Linux Celery/Redis 执行有界片段。业务任务、事件、审批与动作意图分别保存在当前工作区数据库；checkpoint 使用对应模式的 SQLite/PostgreSQL 存储，不替代业务事实。现场端只执行工具，无需第二套模型 Key。
 
-首个真实切片闭环仍可同步在 CLI 内执行；出现持久桌面长任务时引入任务执行模块。正式后台调度采用单一选定实现，避免先写完整队列系统再迁移。Windows 本地执行端运行独立进程，负责原生 Orca 与设备适配，不运行 Celery worker。
+真实工具可以通过共用业务 CLI 验证。完整目标从架构上定义两种任务 Adapter，一个工作区只启用一种后端，不让两者同时派发同一任务。Windows 个人后台使用本地持久队列，现场端独立负责原生 Orca 与设备适配，不运行 Celery worker。
 
 这是适配 Autumn Print 需求的设计判断，不是仅凭 Star 数作出的排名。最高关注度的完整助手作为设计参考，不直接引入其全部运行权限与产品结构。
 
@@ -198,7 +202,7 @@ vtk.js 擅长科学可视化数据处理（其定位为 Visualization Toolkit fo
 - FastAPI 处理验证、权限、任务提交、查询与事件传输。切片/几何长 CPU 任务放独立执行进程；官方 [BackgroundTasks 文档](https://fastapi.tiangolo.com/tutorial/background-tasks/)也把重计算与多进程分布式工作作为另需工具的场景。不能把 BackgroundTasks 当耐久工作流。
 - Pydantic 用于外部输入输出、工具参数与配置；数据库约束和事务另行保证数量、引用、版本和状态一致性。
 - SQLAlchemy 管业务事务，Alembic 做迁移；当前官方 [SQLAlchemy 文档](https://docs.sqlalchemy.org/)已提供 2.1，已有2.0指南不应被误当最新。[Alembic 文档](https://alembic.sqlalchemy.org/en/latest/)本次显示1.20.1。
-- 正式业务持久层选择 PostgreSQL；CLI 初期可以没有 DB，SQLite 只作单机早期演示或专项测试，不能用它模拟 PostgreSQL 锁/租约并声称验证通过。
+- 正式业务持久层个人选择 SQLite，企业选择 PostgreSQL；分别验证事务、并发、租约和迁移，不能用 SQLite 模拟 PostgreSQL 锁/RLS 并声称验证通过。
 - PostgreSQL 外键、唯一约束、事务与乐观版本是主要业务一致性工具；租户/资源过滤在应用执行，RLS 可作纵深保护。官方 [RLS 文档](https://www.postgresql.org/docs/current/ddl-rowsecurity.html)应结合数据库连接角色与测试设计，避免当成自动隔离保证。
 - 当前 PostgreSQL 官方文档稳定分支为18，19仍RC；新部署选受支持稳定版本而非RC。
 - 技术资料与历史工艺先用元数据/全文检索；有实际召回问题时再加 pgvector。不首期并用 Milvus、Qdrant、Elasticsearch 等多套存储。
@@ -222,7 +226,7 @@ vtk.js 擅长科学可视化数据处理（其定位为 Visualization Toolkit fo
 - 企业OIDC由Keycloak或客户已有IdP接入；[Keycloak官方OIDC说明](https://www.keycloak.org/securing-apps/oidc-layers)支持标准身份集成。登录成功只确认身份；实际组织成员、订单/设备/批准权限仍由Autumn后端检查。
 - 用户RBAC角色与Agent工作角色分开。Agent角色不能授予人类没有的设备权限。工艺批准、质检更正和设备启动应有明确业务策略与审计。
 
-Electron main 可在单人开发阶段启动 Python Edge 子进程；需要关窗后继续值守或多用户车间运行时，改为单独安装的 Windows 服务。Edge 的设备租约、任务事实与恢复不能仅依赖 renderer/main 内存。桌面退出不等于取消设备任务，服务更新也不能打断在途提交。IPC 可用标准输入输出或私有命名管道；若使用 loopback HTTP，应有每实例认证/端点权限，不能因为绑定 127.0.0.1 就开放无鉴权设备控制。
+个人安装包登记独立于窗口的当前用户后台，监督本机 API、worker 与 Edge；企业服务器和现场端分别部署。设备租约、任务事实与恢复不能依赖 renderer/main 内存。桌面退出不取消设备任务，更新不能打断在途提交。本地 HTTP 使用受保护发现记录、实例认证与端点权限，不能因为绑定 127.0.0.1 就开放无鉴权设备控制。
 
 ### 7. 验证与运维
 
@@ -234,7 +238,7 @@ Electron main 可在单人开发阶段启动 Python Edge 子进程；需要关�
 
 ### 8. 起步、延后与不采用
 
-**起步必需：** Python/FastAPI、受控子进程、模型/切片artifact、Electron/electron-vite/electron-builder 单一主链、React/TS、Three/R3F稳定组合、main/preload/renderer 边界、基本权限与日志；从首个正式持久业务版本开始用PostgreSQL+迁移。前几个CLI阶段不强行启动全部企业基础设施。
+**完整设计基线：** 四应用三公共包、Python/FastAPI、受控工具、模型/切片 artifact、Electron 构建分发主链、React/TS、Three/R3F、受限 IPC、授权与日志；个人随包 SQLite/本地后台，企业 PostgreSQL/迁移与 Celery/Redis。个人用户无需企业基础设施；具体安装、裁剪与验收见部署设计。
 
 **有条件加入：** TanStack复杂表格、Zustand、React Flow、pgvector、SeaweedFS、Keycloak、完整OpenTelemetry后端、Redis缓存。
 

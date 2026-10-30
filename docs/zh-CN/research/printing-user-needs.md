@@ -1,5 +1,7 @@
 # 3D 打印与 OrcaSlicer：从业者需求证据与产品方向
 
+[English](../../en/research/printing-user-needs.md) | 简体中文
+
 调研日期：2026-10-29（Asia/Shanghai）。本研究查看 OrcaSlicer 官方讨论、Issue 与打印农场原始用户讨论。本轮只新增此文件，不修改指南或 OrcaSlicer。匿名自报不能代表全行业；历史 Bug 不表示当前版本仍然存在；评论中有厂商/开发者推广，不采纳其成效数字作收益预期。
 
 ## 1. 已阅读的原始证据

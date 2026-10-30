@@ -1,6 +1,8 @@
 # Autumn Print：基于 OrcaSlicer 的 3D 打印工艺与生产 Agent
 
-> 方向确认（2026-10-29）：用户已认可 3D 打印工艺与生产助手方向。当前集成开发路线见 [guide.md](../guide.md)；本文保留为选题与源码调研依据。
+[English](../../en/research/printing-orca-direction.md) | 简体中文
+
+> 方向确认（2026-10-29）：用户已认可 3D 打印工艺与生产助手方向。当前集成开发路线见 [guide.md](../engineering/delivery-plan.md)；本文保留为选题与源码调研依据。
 
 调研日期：2026-10-29（Asia/Shanghai）。用户已明确行业方向为 3D 打印。本文件是产品建议与代码调研，不表示能力已经实现。未修改 OrcaSlicer，也未连接或控制打印机。
 
